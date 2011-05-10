@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Test grid</title>
+    <style type="text/css" media="screen">
+        body {
+            background: #ddd;
+            line-height: 1.4;
+        }
+        #container {
+            width: 940px;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+    <script>
+        var GRILLE_SETTINGS = {
+            num_cols: 12,
+            grid_width: 960,
+            align: 'center',
+            position: 'background',
+            opacity: .5
+        }
+        GRILLE_SETTINGS.gutter = (GRILLE_SETTINGS.grid_width / GRILLE_SETTINGS.num_cols) / 4;
+        GRILLE_SETTINGS.col_width = GRILLE_SETTINGS.gutter * 3;
+    </script>
+    <script src="./js/grid.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h1 id="lalala">Lalala</h1>
+        <h3>What do you say?</h3>
+        <p>
+            Proin ac ornare nisl. Duis magna justo, condimentum et sagittis et, lobortis id libero. Vivamus lectus massa, hendrerit non pretium sed, feugiat eget eros. Duis est elit, porta vel rutrum sed, varius sed metus. In ultricies iaculis sem, ut dictum libero tincidunt in. Morbi erat urna, tincidunt vel condimentum sit amet, tempor vel lacus. Suspendisse dictum lacus at ante luctus nec imperdiet nisi congue. Nulla a urna nibh. Integer et libero mi, hendrerit sollicitudin metus. Praesent eget ipsum rhoncus massa tincidunt venenatis mattis ut nulla. Aenean sollicitudin lacus in lorem auctor a convallis arcu luctus. Curabitur accumsan nisl in lorem sodales vehicula. Proin ultricies cursus magna sit amet laoreet. Fusce in quam lacus, at varius magna. Proin vel ipsum a elit hendrerit ultricies. Donec sit amet sem felis, auctor cursus diam. Pellentesque vel nisl a turpis porttitor ultrices vel dapibus orci. Aliquam laoreet turpis diam, vitae blandit libero. Etiam viverra convallis lacus, nec sollicitudin tortor gravida in. Fusce imperdiet elementum est non cursus.</p>
+
+            <p>Fusce auctor quam a ipsum adipiscing vitae ullamcorper sapien tristique. Duis sollicitudin molestie elit, sed ultricies ligula faucibus vel. Etiam mollis, metus eget posuere congue, magna justo ultrices turpis, nec bibendum justo felis a purus. Sed ut erat nec ipsum porttitor imperdiet quis eu urna. Maecenas sodales neque et erat iaculis quis semper nulla pretium. Aliquam et luctus massa. Nullam convallis, lectus ut vulputate venenatis, lectus arcu iaculis dui, ut tristique ante ligula at sem. Aenean vitae nulla purus. Sed sed sem vitae lectus luctus venenatis non quis urna. Suspendisse imperdiet elementum adipiscing. Fusce iaculis magna libero. Nunc hendrerit, sem pretium fringilla varius, velit quam molestie elit, vitae varius diam nunc sit amet diam. Mauris imperdiet tellus eu felis pellentesque vel lobortis orci pulvinar. Phasellus gravida dapibus lectus id iaculis. Integer sed aliquet ipsum. Vivamus nec neque eget ipsum sodales iaculis. Mauris nec turpis eu purus ultrices gravida at sit amet mi.</p>
+
+            <p>Vivamus pharetra, leo blandit imperdiet posuere, tortor orci mattis mi, ac euismod dolor urna in nisi. Curabitur sit amet nisl eget orci euismod dictum ut eget felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc laoreet gravida tempor. Morbi quis metus non ante venenatis vestibulum. Maecenas eget libero dolor. In gravida, risus quis tristique pulvinar, nibh nisl imperdiet eros, at blandit risus nibh eget nulla. Proin leo mauris, euismod nec interdum ac, vestibulum at eros. Ut libero urna, aliquam sed mattis sed, volutpat nec nibh. Nunc interdum tempor tempor. Suspendisse malesuada accumsan posuere. Sed et ipsum arcu, quis placerat arcu. Maecenas ornare dictum nulla ac volutpat. Mauris a congue nisl. Fusce justo leo, iaculis in rutrum eget, egestas in sapien. Aliquam erat volutpat.</p>
+    </div>
+</body>
+</html>

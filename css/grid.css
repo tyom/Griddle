@@ -1,0 +1,74 @@
+.grille-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    font: 11px Arial, sans-serif;
+}
+.grille-wrapper {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: -1px 0 0 0 #bbb;
+    opacity: 0;
+    -moz-transition: 300ms;
+}
+
+.grille-wrapper .cols, .grille-wrapper .rows {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.grille-wrapper .col {
+    float: left;
+    height: 100%;
+    background: #ddd;
+    box-shadow: inset -1px 0 0 0 #bbb;
+}
+
+.grille-wrapper .col .inner {
+    background: #fff;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.grille-wrapper .row {
+    border-bottom: 1px solid #ccc;
+}
+
+.grille-controls {
+    background: #777;
+    float: left;
+    padding: 3px;
+    border: solid #555;
+    border-width: 0 1px 1px 0;
+}
+.grille-controls a {
+    float: left;
+    width: 15px;
+    height: 12px;
+    line-height: 12px;
+    padding: 4px;
+    text-align: center;
+    border: 1px solid #999;
+    color: #ccc;
+    cursor: pointer;
+}
+.grille-controls a:hover {
+    color: #fff;
+    border-color: #fff;
+}
+.grille-container .grille-controls a:active {
+    color: #777;
+    background: #fff;
+}
+.grille-controls a.on {
+    background: #888;
+    border-color: #bbb;
+}
