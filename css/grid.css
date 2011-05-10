@@ -12,9 +12,9 @@
     top: 0;
     background: #fff;
     overflow: hidden;
-    box-shadow: -1px 0 0 0 #bbb;
+    box-shadow: 0 0 0 1px #ccc;
     opacity: 0;
-    -moz-transition: 300ms;
+    -moz-transition: 400ms ease-in-out;
 }
 
 .grille-wrapper .cols, .grille-wrapper .rows {
@@ -24,12 +24,19 @@
     top: 0;
     left: 0;
 }
+.grille-wrapper .cols {
+    z-index: 2;
+    opacity: .5;
+}
 
 .grille-wrapper .col {
     float: left;
     height: 100%;
     background: #ddd;
-    box-shadow: inset -1px 0 0 0 #bbb;
+    box-shadow: -1px 0 0 0 #aaa;
+}
+.grille-wrapper .col:first-child {
+    box-shadow: none;
 }
 
 .grille-wrapper .col .inner {

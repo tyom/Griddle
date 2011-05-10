@@ -107,7 +107,9 @@ var Grid = {
         }
         
         this.createCols();
-        this.createRows();
+        if(GRILLE_SETTINGS.show_rows) {
+            this.createRows();
+        }
         
         setTimeout(function() {
             Grid.wrapper.css('opacity', GRILLE_SETTINGS.opacity);
