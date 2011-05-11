@@ -21,10 +21,11 @@ var Grid = {
         GRIDDLE_SETTINGS.num_cols = GRIDDLE_SETTINGS.num_cols || 12;
         GRIDDLE_SETTINGS.gutter = ( GRIDDLE_SETTINGS.grid_width/ GRIDDLE_SETTINGS.num_cols) / 4;
         GRIDDLE_SETTINGS.col_width = GRIDDLE_SETTINGS.gutter * 3;
-        GRIDDLE_SETTINGS.grid_opacity = GRIDDLE_SETTINGS.grid_opacity || .5;
-        GRIDDLE_SETTINGS.col_opacity = GRIDDLE_SETTINGS.col_opacity || .5;
+        GRIDDLE_SETTINGS.grid_opacity = GRIDDLE_SETTINGS.grid_opacity || 0.5;
+        GRIDDLE_SETTINGS.col_opacity = GRIDDLE_SETTINGS.col_opacity || 0.5;
         GRIDDLE_SETTINGS.col_colour = GRIDDLE_SETTINGS.col_colour || '#eee';
-        GRIDDLE_SETTINGS.gutter_style = GRIDDLE_SETTINGS.gutter_style || 'none'
+        GRIDDLE_SETTINGS.gutter_colour = GRIDDLE_SETTINGS.gutter_colour || '#fff';
+        GRIDDLE_SETTINGS.gutter_line_colour = GRIDDLE_SETTINGS.gutter_line_colour || '#fff';
         
         this.createControls();
         
@@ -64,8 +65,7 @@ var Grid = {
         var i,
             col = $('<div class="griddle-col"/>'),
             gutter = $('<div class="griddle-gutter"/>'),
-            cols = $('<div class="griddle-cols" />').appendTo(this.container),
-            style = GRIDDLE_SETTINGS.gutter_style;
+            cols = $('<div class="griddle-cols" />').appendTo(this.container);
         
         // columns
         col.css({ 
@@ -82,20 +82,22 @@ var Grid = {
         }
         // gutter
         gutter.css({
-            'width': GRIDDLE_SETTINGS.gutter,
+            'width': GRIDDLE_SETTINGS.gutter
         });
         
         // gutter style
-        if(typeof style == 'string' && style !== 'line') {
-            gutter.css({ 'background': style });
-        } else {
-            gutter.css({ 
-                    'background': 'none',
-                    'margin-right': GRIDDLE_SETTINGS.gutter/2,
-                    'width': GRIDDLE_SETTINGS.gutter/2,
-                    'box-shadow': '1px 0 0' + GRIDDLE_SETTINGS.col_line_colour
-                });
-        }
+        gutter.css({ 
+            'background': GRIDDLE_SETTINGS.gutter_colour,
+            'box-shadow': 'inset 9px 0 0 ' + GRIDDLE_SETTINGS.gutter_colour + ', inset 10px 0 0 ' + GRIDDLE_SETTINGS.gutter_line_colour
+        });
+        // } else {
+        //     gutter.css({ 
+        //             'background': 'none',
+        //             'margin-right': GRIDDLE_SETTINGS.gutter/2,
+        //             'width': GRIDDLE_SETTINGS.gutter/2,
+        //             'box-shadow': '1px 0 0' + GRIDDLE_SETTINGS.col_line_colour
+        //         });
+        // }
         
         for (i=0; i < GRIDDLE_SETTINGS.num_cols; i++) {
                 gutter.clone().appendTo(cols);
@@ -120,7 +122,7 @@ var Grid = {
     
     show: function() {
         this.container.css({
-            'opacity': GRIDDLE_SETTINGS.grid_opacity,
+            'opacity': GRIDDLE_SETTINGS.grid_opacity
         });
     },
     
@@ -151,7 +153,7 @@ var Grid = {
         } else if(GRIDDLE_SETTINGS.align == 'right') {
             this.container.css({ 
                 'left': 'auto',
-                'right': 0,
+                'right': 0
             });
         } else {
             this.container.css({ 
@@ -173,4 +175,4 @@ var Grid = {
             this.container.remove();
         }
     }
-}
+};
