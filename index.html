@@ -4,34 +4,51 @@
     <meta charset="utf-8">
     <title>Test grid</title>
     <style type="text/css" media="screen">
+        html {
+            font: 62.5% Arial, sans-serif;
+        }
         body {
+            font-size: 1.2em;
             background: #ddd;
-            line-height: 1.4;
+            line-height: 18px;
         }
         #container {
             width: 940px;
             margin: 0 auto;
         }
+        h1, h2 {
+            font-size: 2.4em;
+            margin: 1em 0;
+        }
+        h2 {
+            font-size: 1.7em;
+        }
+        p {
+            margin: 1em 0;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
     <script>
-        var GRILLE_SETTINGS = {
-            num_cols: 12,
-            grid_width: 960,
-            align: 'center',
-            position: 'background',
-            opacity: .5,
-            show_rows: true
+        var GRIDDLE_SETTINGS = {
+            // num_cols: 12,               // recommended: 12, 16
+            // grid_width: 960,            // recommended: 960, 1200
+            // align: 'centre',            // centre | left | right
+            position: 'background',     // background | foreground
+            // grid_opacity: .5,           
+            vertical_rhythm: true,     // show horizontal lines
+            // row_line_colour: '#ddd',     // HEX colour of row lines
+            gutter_style: 'line',       // HEX colour | line
+            // col_colour: 'none',         // HEX colour of columns
+            col_outline: true,          // show col outlines
+            col_line_colour: '#aaa'    // HEX colour of col lines
         }
-        GRILLE_SETTINGS.gutter = (GRILLE_SETTINGS.grid_width / GRILLE_SETTINGS.num_cols) / 4;
-        GRILLE_SETTINGS.col_width = GRILLE_SETTINGS.gutter * 3;
     </script>
     <script src="./js/grid.js"></script>
 </head>
 <body>
     <div id="container">
-        <h1 id="lalala">Lalala</h1>
-        <h3>What do you say?</h3>
+        <h1>Lalala</h1>
+        <h2>What do you say?</h2>
         <p>
             Proin ac ornare nisl. Duis magna justo, condimentum et sagittis et, lobortis id libero. Vivamus lectus massa, hendrerit non pretium sed, feugiat eget eros. Duis est elit, porta vel rutrum sed, varius sed metus. In ultricies iaculis sem, ut dictum libero tincidunt in. Morbi erat urna, tincidunt vel condimentum sit amet, tempor vel lacus. Suspendisse dictum lacus at ante luctus nec imperdiet nisi congue. Nulla a urna nibh. Integer et libero mi, hendrerit sollicitudin metus. Praesent eget ipsum rhoncus massa tincidunt venenatis mattis ut nulla. Aenean sollicitudin lacus in lorem auctor a convallis arcu luctus. Curabitur accumsan nisl in lorem sodales vehicula. Proin ultricies cursus magna sit amet laoreet. Fusce in quam lacus, at varius magna. Proin vel ipsum a elit hendrerit ultricies. Donec sit amet sem felis, auctor cursus diam. Pellentesque vel nisl a turpis porttitor ultrices vel dapibus orci. Aliquam laoreet turpis diam, vitae blandit libero. Etiam viverra convallis lacus, nec sollicitudin tortor gravida in. Fusce imperdiet elementum est non cursus.</p>
 

@@ -1,4 +1,4 @@
-.grille-container {
+.griddle-container {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -6,57 +6,47 @@
     left: 0;
     font: 11px Arial, sans-serif;
 }
-.grille-wrapper {
+.griddle-wrapper {
     position: absolute;
     height: 100%;
     top: 0;
     background: #fff;
     overflow: hidden;
-    box-shadow: 0 0 0 1px #ccc;
     opacity: 0;
     -moz-transition: 400ms ease-in-out;
 }
 
-.grille-wrapper .cols, .grille-wrapper .rows {
+.griddle-cols, .griddle-rows {
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
 }
-.grille-wrapper .cols {
+.griddle-cols {
     z-index: 2;
-    opacity: .5;
 }
 
-.grille-wrapper .col {
+.griddle-gutter, .griddle-col {
     float: left;
     height: 100%;
-    background: #ddd;
-    box-shadow: -1px 0 0 0 #aaa;
 }
-.grille-wrapper .col:first-child {
-    box-shadow: none;
+.griddle-col {
+    position: relative;
 }
 
-.grille-wrapper .col .inner {
-    background: #fff;
-    margin: 0 auto;
-    height: 100%;
-}
-
-.grille-wrapper .row {
+.griddle-row {
     border-bottom: 1px solid #ccc;
 }
 
-.grille-controls {
+.griddle-controls {
     background: #777;
     float: left;
     padding: 3px;
     border: solid #555;
     border-width: 0 1px 1px 0;
 }
-.grille-controls a {
+.griddle-controls a {
     float: left;
     width: 15px;
     height: 12px;
@@ -67,15 +57,15 @@
     color: #ccc;
     cursor: pointer;
 }
-.grille-controls a:hover {
+.griddle-controls a:hover {
     color: #fff;
     border-color: #fff;
 }
-.grille-container .grille-controls a:active {
+.griddle-controls a:active {
     color: #777;
     background: #fff;
 }
-.grille-controls a.on {
+.griddle-controls a.on {
     background: #888;
     border-color: #bbb;
 }
