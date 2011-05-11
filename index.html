@@ -8,20 +8,27 @@
             font: 62.5% Arial, sans-serif;
         }
         body {
+            padding: 1em;
+            margin: 0;
             font-size: 1.2em;
-            background: #ddd;
-            line-height: 18px;
+            line-height: 1.5;
         }
         #container {
             width: 940px;
             margin: 0 auto;
         }
         h1, h2 {
-            font-size: 2.4em;
-            margin: 1em 0;
+            font-family: 'Baskerville';
+            font-weight: bold;
+            font-size: 3em;
+            margin: .5em 0 0;
+        }
+        h1:first-child, h2:first-child {
+            margin: 0;
         }
         h2 {
-            font-size: 1.7em;
+            color: #555;
+            font-size: 2.2em;
         }
         p {
             margin: 1em 0;
@@ -30,6 +37,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
     <script>
         var GRIDDLE_SETTINGS = {
+            grid_on: true,
             // num_cols: 12,               // recommended: 12, 16
             // grid_width: 960,            // recommended: 960, 1200
             // align: 'centre',            // centre | left | right

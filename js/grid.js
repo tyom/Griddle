@@ -12,8 +12,7 @@ $(function(){
 
 var Grid = {
     container: null,
-    wrapper: null,
-    state: 'on',
+    state: GRIDDLE_SETTINGS.grid_on ? 'on' : 'off',
     
     init: function() {
         // grid defaults
@@ -27,14 +26,15 @@ var Grid = {
         GRIDDLE_SETTINGS.col_colour = GRIDDLE_SETTINGS.col_colour || '#eee';
         GRIDDLE_SETTINGS.gutter_style = GRIDDLE_SETTINGS.gutter_style || 'none'
         
-        this.container = $('<div class="griddle-container" />').appendTo('body');
         this.createControls();
         
-        this.create();
+        if(GRIDDLE_SETTINGS.grid_on) {
+            this.create();
+        }
     },
     
     createControls: function() {
-        var controls = $('<div class="griddle-controls" />').appendTo(this.container);
+        var controls = $('<div class="griddle-controls" />').appendTo('body');
         var toggle = $('<a class="' + this.state + '" />').appendTo(controls);
         
         toggle.text(this.state);
@@ -48,15 +48,14 @@ var Grid = {
     },
     
     handleGrid: function() {
+        if(!this.container) {
+            this.create();
+        }
         if(this.state == 'on') {
-            this.wrapper.css('opacity', 0);
-            // Grid.destroy();
+            this.hide();
             this.state = 'off';
         } else {
-            // Grid.create();
-            this.wrapper.css({
-                'opacity': GRIDDLE_SETTINGS.opacity
-            });
+            this.show();
             this.state = 'on';
         }
     },
@@ -65,7 +64,7 @@ var Grid = {
         var i,
             col = $('<div class="griddle-col"/>'),
             gutter = $('<div class="griddle-gutter"/>'),
-            cols = $('<div class="griddle-cols" />').appendTo(this.wrapper),
+            cols = $('<div class="griddle-cols" />').appendTo(this.container),
             style = GRIDDLE_SETTINGS.gutter_style;
         
         // columns
@@ -113,16 +112,30 @@ var Grid = {
                         'height': $('body').css('line-height'),
                         'border-bottom': '1px solid ' + GRIDDLE_SETTINGS.row_line_colour
                     });
-        var rows = $('<div class="griddle-rows" />').appendTo(this.wrapper);
+        var rows = $('<div class="griddle-rows" />').appendTo(this.container);
         for (var i=0; i < 100; i++) {
             col.clone().appendTo(rows);
         };
     },
     
+    show: function() {
+        this.container.css({
+            'opacity': GRIDDLE_SETTINGS.grid_opacity,
+        });
+    },
+    
+    hide: function() {
+        this.container
+            .css({ 'opacity': 0 });
+    },
+    
     create: function() {
-        this.wrapper = $('<div class="griddle-wrapper" />')
-                        .css('box-shadow', '0 0 0 1px ' + GRIDDLE_SETTINGS.col_line_colour)
-                        .appendTo(this.container)
+        this.container = $('<div class="griddle-container" />')
+                        .css({ 
+                                'box-shadow': '0 0 0 1px ' + GRIDDLE_SETTINGS.col_line_colour,
+                                'opacity': 0
+                            })
+                        .appendTo('body')
                         .width(GRIDDLE_SETTINGS.grid_width);
                         
         if(GRIDDLE_SETTINGS.position == 'background') {
@@ -131,17 +144,17 @@ var Grid = {
             });
         }
         if(GRIDDLE_SETTINGS.align == 'left') {
-            this.wrapper.css({ 
+            this.container.css({ 
                 'left': '0',
                 'margin-left': 0
             });
         } else if(GRIDDLE_SETTINGS.align == 'right') {
-            this.wrapper.css({ 
+            this.container.css({ 
                 'left': 'auto',
                 'right': 0,
             });
         } else {
-            this.wrapper.css({ 
+            this.container.css({ 
                 'left': '50%',
                 'margin-left': -(GRIDDLE_SETTINGS.grid_width/2)
             });
@@ -152,14 +165,12 @@ var Grid = {
             this.createRows();
         }
         
-        setTimeout(function() {
-            Grid.wrapper.css('opacity', GRIDDLE_SETTINGS.grid_opacity);
-        }, 500)
+        this.show();
     },
     
     destroy: function() {
-        if(this.wrapper) {
-            this.wrapper.remove();
+        if(this.container) {
+            this.container.remove();
         }
     }
 }
